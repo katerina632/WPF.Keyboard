@@ -1,0 +1,418 @@
+﻿<Window x:Class="Styles.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Styles"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="900">    
+    <Window.Resources>
+
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="30"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style  BasedOn="{StaticResource {x:Type TextBlock}}" x:Key="smallFontKeysStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="20"></Setter>
+
+        </Style>
+
+        <Style x:Key="mainBorderStyle" TargetType="{x:Type Border}">
+            <Style.Setters>
+                <Setter Property="Background" Value="#FFB5B5B5" ></Setter>
+                <Setter Property="BorderBrush" Value="#FF383535" ></Setter>
+                <Setter Property="BorderThickness" Value="2,2,2,4"></Setter>
+                <Setter Property="CornerRadius" Value="10"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style.Setters>
+
+            <Style.Triggers >
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Gray"></Setter>
+                </Trigger>
+
+                <EventTrigger RoutedEvent="MouseDown" >
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>                              
+                                <ThicknessAnimation Storyboard.TargetProperty="BorderThickness"   To="2,4,2,2" Duration="0:0:0:0.3" ></ThicknessAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseUp" >
+                    <EventTrigger.Actions>
+                        <BeginStoryboard  >
+                            <Storyboard >                               
+                                <ThicknessAnimation Storyboard.TargetProperty="BorderThickness"   To="2,2,2,4" Duration="0:0:0:0.3" ></ThicknessAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+
+            </Style.Triggers>
+        </Style>
+
+
+        <Style BasedOn="{StaticResource mainBorderStyle}" x:Key="redBorderStyle" TargetType="{x:Type Border}" >
+            <Setter Property="Background" Value="#FFF07795"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFAA6E7D"></Setter>
+
+                </Trigger>
+                <EventTrigger RoutedEvent="MouseDown"  >
+                    <EventTrigger.Actions>
+                        <BeginStoryboard  >
+                            <Storyboard >
+                                
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseUp"  >
+                    <EventTrigger.Actions>
+                        <BeginStoryboard  >
+                            <Storyboard >
+                                
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+
+            </Style.Triggers>
+        </Style>
+
+        <Style BasedOn="{StaticResource mainBorderStyle}" x:Key="yellowBorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#FFF1EC65"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFCED670"></Setter>
+                </Trigger>  
+            </Style.Triggers>
+        </Style>
+
+        <Style BasedOn="{StaticResource mainBorderStyle}" x:Key="greenBorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#FF73F36A"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF8BBB86"></Setter>
+                </Trigger>
+            </Style.Triggers>            
+            
+        </Style>
+        <Style BasedOn="{StaticResource mainBorderStyle}" x:Key="blueBorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#FF65BFFF"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF759CB8"></Setter>
+                </Trigger>                
+            </Style.Triggers>
+
+        </Style>
+        <Style BasedOn="{StaticResource mainBorderStyle}" x:Key="purpleBorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#FFDF77F5"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF9669A0"></Setter>
+                </Trigger>                
+            </Style.Triggers>
+
+        </Style>
+        <Style BasedOn="{StaticResource mainBorderStyle}" x:Key="orangeBorderStyle" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#FFF5C571"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFB49764"></Setter>
+                </Trigger>               
+            </Style.Triggers>
+        </Style>       
+
+    </Window.Resources>
+
+    <Grid Style="{x:Null}">
+        <Grid.RowDefinitions >
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource redBorderStyle}"  >
+            <TextBlock>`</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource redBorderStyle}" >
+            <TextBlock>1</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="4" Grid.ColumnSpan="2" Style="{StaticResource redBorderStyle}" >
+            <TextBlock>2</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="6" Grid.ColumnSpan="2" Style="{StaticResource yellowBorderStyle}">
+            <TextBlock>3</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="8" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}" >
+            <TextBlock>4</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="10" Grid.ColumnSpan="2" Style="{StaticResource blueBorderStyle}">
+            <TextBlock>5</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="12" Grid.ColumnSpan="2" Style="{StaticResource blueBorderStyle}">
+            <TextBlock>6</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="14" Grid.ColumnSpan="2" Style="{StaticResource purpleBorderStyle}">
+            <TextBlock>7</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="16" Grid.ColumnSpan="2" Style="{StaticResource purpleBorderStyle}">
+            <TextBlock>8</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="18" Grid.ColumnSpan="2" Style="{StaticResource redBorderStyle}" >
+            <TextBlock>9</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="20" Grid.ColumnSpan="2" Style="{StaticResource yellowBorderStyle}">
+            <TextBlock>0</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="22" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>-</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="24" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>=</TextBlock>
+        </Border>
+
+        <Border Grid.Column="26" Grid.ColumnSpan="4" Style="{StaticResource mainBorderStyle}">
+            <TextBlock  Style="{StaticResource smallFontKeysStyle}">Backspace</TextBlock>
+        </Border>
+
+        <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource mainBorderStyle}">
+            <TextBlock  Style="{StaticResource smallFontKeysStyle}">Tab</TextBlock>
+        </Border>
+            
+        <Border Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource redBorderStyle}" >
+            <TextBlock>q</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource yellowBorderStyle}">
+            <TextBlock>w</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>e</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="9" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource blueBorderStyle}">
+            <TextBlock>r</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="11" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource blueBorderStyle}">
+            <TextBlock>t</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="13" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource purpleBorderStyle}">
+            <TextBlock>y</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="15" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource purpleBorderStyle}">
+            <TextBlock>u</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="17" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource redBorderStyle}" >
+            <TextBlock>i</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="19" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource yellowBorderStyle}">
+            <TextBlock>o</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="21" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}" >
+            <TextBlock>p</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="23" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>[</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="25" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>]</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="27" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>\</TextBlock>
+        </Border>
+
+        <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Style="{StaticResource mainBorderStyle}">
+            <TextBlock  Style="{StaticResource smallFontKeysStyle}">Caps Lock</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource redBorderStyle}" >
+            <TextBlock>a</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource yellowBorderStyle}" >
+            <TextBlock>s</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="8" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>d</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="10" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource blueBorderStyle}">
+            <TextBlock>f</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="12" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource blueBorderStyle}">
+            <TextBlock>g</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="14" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource purpleBorderStyle}">
+            <TextBlock>h</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="16" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource purpleBorderStyle}">
+            <TextBlock>j</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="18" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource redBorderStyle}" >
+            <TextBlock>k</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="20" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource yellowBorderStyle}">
+            <TextBlock>l</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="22" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>;</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="24" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>'</TextBlock>
+        </Border>
+
+        <Border Grid.Column="26" Grid.Row="2" Grid.ColumnSpan="4" Style="{StaticResource mainBorderStyle}">
+            <TextBlock  Style="{StaticResource smallFontKeysStyle}">Enter</TextBlock>
+        </Border>
+
+        <Border Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" Style="{StaticResource mainBorderStyle}">
+            <TextBlock Style="{StaticResource smallFontKeysStyle}">Shift</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource redBorderStyle}" >
+            <TextBlock>z</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="7" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource yellowBorderStyle}">
+            <TextBlock>x</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="9" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>c</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="11" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource blueBorderStyle}">
+            <TextBlock>v</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="13" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource blueBorderStyle}">
+            <TextBlock>b</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="15" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource purpleBorderStyle}">
+            <TextBlock>n</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="17" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource purpleBorderStyle}">
+            <TextBlock>m</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="19" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource redBorderStyle}" >
+            <TextBlock>,</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="21" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource yellowBorderStyle}">
+            <TextBlock>.</TextBlock>
+        </Border>
+        
+        <Border Grid.Column="23" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource greenBorderStyle}">
+            <TextBlock>/</TextBlock>
+        </Border>
+
+        <Border Grid.Column="25" Grid.Row="3" Grid.ColumnSpan="5" Style="{StaticResource mainBorderStyle}">
+            <TextBlock Style="{StaticResource smallFontKeysStyle}">Shift</TextBlock>
+        </Border>
+
+        <Border Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource mainBorderStyle}">
+            <TextBlock  Style="{StaticResource smallFontKeysStyle}">Ctrl</TextBlock>
+        </Border>
+
+        <Border Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource mainBorderStyle}">
+            <TextBlock  Style="{StaticResource smallFontKeysStyle}">Win</TextBlock>
+        </Border>
+
+        <Border Grid.Column="6" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource mainBorderStyle}">
+            <TextBlock  Style="{StaticResource smallFontKeysStyle}">Alt</TextBlock>
+        </Border>
+
+        <Border Grid.Column="9" Grid.Row="4" Grid.ColumnSpan="12"  Style="{StaticResource orangeBorderStyle}">
+            <TextBlock  Style="{StaticResource smallFontKeysStyle}">Space</TextBlock>
+        </Border>
+
+        <Border Grid.Column="21" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource mainBorderStyle}">
+            <TextBlock Style="{StaticResource smallFontKeysStyle}">Alt</TextBlock>
+        </Border>
+
+        <Border Grid.Column="24" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource mainBorderStyle}">
+            <TextBlock   Style="{StaticResource smallFontKeysStyle}">Win</TextBlock>
+        </Border>
+
+        <Border Grid.Column="27" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource mainBorderStyle}">
+            <TextBlock  Style="{StaticResource smallFontKeysStyle}">Ctrl</TextBlock>
+        </Border>
+
+    </Grid>
+</Window>
